@@ -1,0 +1,15 @@
+{#
+/**
+ * Returns HTML for an oEmbed video.
+ *
+ * Available variables
+ * - string node: The complete HTML tag whose contents are being captioned.
+ * - string tag: The name of the HTML tag whose contents are being captioned.
+ * - string caption: The caption text.
+ * - string|NULL align: (optional) The alignment: 'left', 'center', 'right' or
+ *   NULL.
+ */
+#}
+<div class="oembed oembed-video oembed-provider-{{ provider|class }}">
+  {{ html }}
+</div>

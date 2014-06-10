@@ -1,0 +1,15 @@
+providers:
+  youtube:
+    id: youtube
+    plugin: oembed
+    label: 'Youtube'
+    filter: '#youtube\.com/.*#i'
+    endpoint: 'http://www.youtube.com/oembed?format=json&url=%s'
+    weight: 1
+  embedly:
+    id: embedly
+    plugin: oembed
+    label: 'Embedly'
+    filter: '#.*#'
+    endpoint: ''
+    weight: 2
