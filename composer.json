@@ -1,0 +1,5 @@
+{
+  "require": {
+    "fg/essence": "2.4.*"
+  }
+}
