@@ -21,11 +21,14 @@ I would love to build something on top of https://github.com/felixgirault/essenc
 
 ## Filter components
 * Filter and corresponding CKEditor button for embedding an oEmbed URL, stored using a data attribute:
+  
   ```html
   <div data-oembed-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-max-width="500" data-max-height="100 />
   ```
+  
   Basically keep this as simple as possible. The embed should have the output go through the Twig templates for the different types: image/video/rich/url.
 * A separate oembed_url filter that performs simple replacement of URLs:
+  
   ```html
   $text = $essence->replace($text, function($media) {
     return theme('oembed__' . $media->type, $media);
