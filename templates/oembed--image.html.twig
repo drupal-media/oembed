@@ -1,0 +1,12 @@
+{#
+/**
+ * Returns HTML for an oEmbed image.
+ *
+ * Available variables
+ * - media: The media object from the Essence library.
+ * - attributes: HTML attributes for the containing element.
+ */
+#}
+<div{{ attributes }}>
+  <img src="{{ media.url }}" height="{{ media.height }}" width="{{ media.width }}" alt="{{ media.title }}" />
+</div>

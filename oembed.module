@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function oembed_theme() {
+  return array(
+    'oembed' => array(
+      'variables' => array(
+        'media' => NULL,
+      ),
+      'template' => 'oembed',
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function oembed_theme_suggestions_oembed(array $variables) {
+  $suggestions = array();
+  $media = $variables['media'];
+  $sanitized_provider = drupal_clean_css_identifier($media->provider, array(' ' => '_', '-' => '_'));
+
+  $suggestions[] = 'oembed__' . $sanitized_provider;
+  $suggestions[] = 'oembed__' . $media->type;
+  $suggestions[] = 'oembed__' . $media->type . '__' . $sanitized_provider;
+
+  return $suggestions;
+}
+
+/**
+ * Prepares variables for oEmbed templates.
+ *
+ * Default template: oembed.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - media: The media object from Essence.
+ */
+function template_preprocess_oembed(array &$variables) {
+  $variables['attributes']['class'][] = 'oembed';
+  $variables['attributes']['class'][] = 'oembed-' . drupal_html_class($variables['media']->type);
+  $variables['attributes']['class'][] = 'oembed-provider-' . drupal_html_class($variables['media']->provider);
+}
